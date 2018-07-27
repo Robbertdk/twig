@@ -120,9 +120,9 @@ class TwigAdapter extends Fractal.Adapter {
         });
         
         function filterPath(location) {
-            const doubleSlashLocation = location.indexOf("//");
-            if (doubleSlashLocation) {
-                return location.substring(doubleSlashLocation);
+            const doubleSlashLocation = location.lastIndexOf("//");
+            if (doubleSlashLocation != -1) {
+                return location.substring(doubleSlashLocation + 1);
             }
             return location
         }
